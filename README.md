@@ -66,7 +66,9 @@ npx cypress open
 
 A primeira tarefa será a introdução de uso do Cypress: como criar o primeiro teste e como visualizar a execução com auxílio do serviço de dashboard. 
 
-Após a instalação do Cypress no diretório do projeto, será criada uma pasta `cypress` contento diversas pastas e arquivos. A pasta `integration`, em especifico, contem alguns exemplos de testes que podem ser utilizados como template para diversas tarefas, como utilização de cookies, navegação, etc. Ao abrir o Cypress utilizando o comando `npx cypress open` será exibida a tela apresentada na figura 1, onde `1` lista os testes criados para o sistema e `2` é o botão para criação de um novo arquivo de testes.
+Após a instalação do Cypress no diretório do projeto, será criada uma pasta `cypress` contento diversas pastas e arquivos. A pasta `integration`, em especifico, contem alguns exemplos de testes que podem ser utilizados como template para diversas tarefas, como utilização de cookies, navegação, etc. Ao abrir o Cypress utilizando o comando `npx cypress open` será exibida a tela apresentada na figura abaixo, onde `1` lista os testes criados para o sistema e `2` é o botão para criação de um novo arquivo de testes.
+
+![Figura 1](https://user-images.githubusercontent.com/54295278/124540444-c8c4d180-ddf5-11eb-8573-39fff6437d44.PNG)
 
 Para criação do nosso primeiro teste, iremos criar um novo arquivo chamado `meu_teste.js` dentro da pasta `integration`. Os arquivos de testes do Cypress são constituidos de uma sequência de funcões que podem ser encadeadas com outras funções para testar funcionalidades do front-end da aplicação. Como primeiro teste, iremos apenas observar o resultado de uma simples função de asserção no serviço de Dashboard da ferramenta. No arquivo `meu_teste.js` cole o seguinte código e salve o arquivo:
 
@@ -78,7 +80,9 @@ describe('Meu primeiro teste', () => {
   })
 ```
 
-O teste acima apenas checa se `true` é igual a `true`. Após salvar o arquivo, procure por ele na lista de arquivos de teste na aplicação do Cypress e clique duas vezes no arquivo `meu_teste.js`. Em seguida, será executado o aquivo de testes e os resultados apresentados conforme a figura 2. A área `3` apresenta os resultados dos testes, enquanto `4` apresenta os snapshots obtidos ao longo da execução de cada passo dos testes. Para o nosso simples teste foi apenas constatado que true é igual a true, então todos os testes foram executados com sucesso.
+O teste acima apenas checa se `true` é igual a `true`. Após salvar o arquivo, procure por ele na lista de arquivos de teste na aplicação do Cypress e clique duas vezes no arquivo `meu_teste.js`. Em seguida, será executado o aquivo de testes e os resultados apresentados conforme a figura abaixo. A área `3` apresenta os resultados dos testes, enquanto `4` apresenta os snapshots obtidos ao longo da execução de cada passo dos testes. Para o nosso simples teste foi apenas constatado que true é igual a true, então todos os testes foram executados com sucesso.
+
+![Figura 2](https://user-images.githubusercontent.com/54295278/124540502-e4c87300-ddf5-11eb-98db-ec8b6e5fdd18.PNG)
 
 De forma análoga, se alterarmos a linha `3` para `expect(true).to.equal(false)` e salvarmos o arquivo, é possível observar que o navegador já ira se adequar às mudanças no arquivo de teste e consequentemente o teste irá falhar, uma vez que true não é igual a false.
 
