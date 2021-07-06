@@ -121,27 +121,31 @@ No código anterior realizamos uma query com o auxílio da função `get`. O nos
 Ao passar o mouse em cima de cada etada do teste em `3` é possível observar que `4` muda, refletindo cada etapa de teste. Em específico, o última passo onde procuramos pela terceira coluna contendo o livro desejado é apresentada em destaque, mostrando que foi corretamente identificada.
 
 No terceiro passo, precisamos inserir o CEP no campo indicado e clicar no botão `Calcular Frete`. Como existem três instâncias para calcular o frete, podemos utilizar a função `within()` para selecionar a coluna correta, conforme o código a seguir:
-		```
-		\\ Calcular o frete
-		cy.get('[data-id=3]').within(() => {
-            cy.get('input').type('10000-000')
-            cy.contains('Calcular Frete').click().then
-            cy.wait(2000)
-        })
-        cy.get('.swal-text').contains('O frete é: R$')
-        // Calcular o frete
-        cy.get('.swal-button').click()
-        ```
+
+```
+\\ Calcular o frete
+cy.get('[data-id=3]').within(() => {
+    cy.get('input').type('10000-000')
+    cy.contains('Calcular Frete').click().then
+    cy.wait(2000)
+})
+cy.get('.swal-text').contains('O frete é: R$')
+// Calcular o frete
+cy.get('.swal-button').click()
+```
+        
 Buscamos pela terceira coluna e procuramos pelo campo de `<input>`. Inserimos o CEP `10000-000` e pressionamos o botão `Calcular Frete`. Em seguida esperamos 2 segundos com auxílio da função `wait()` para garantir que o modal carregue corretamente. Dentro do modal selecionamos o `swal-text` e fazemos uma asserção para garantir que a mensagem está correta. Por fim clicamos no botão dentro do modal para fechar o pop-up.
 
 Por último, para realizar a compra do livro, devemos pressionar o botão `Comprar` conforme o código abaixo:
-		```
-		\\ Realizar a compra
-		cy.get('[data-id=3]').within(() => {
-            cy.contains('Comprar').click()
-            cy.wait(2000)
-        })
-        cy.get('.swal-text').contains('Sua compra foi realizada com sucesso')
-        cy.get('.swal-button').click()
-        ```
+
+```
+\\ Realizar a compra
+cy.get('[data-id=3]').within(() => {
+    cy.contains('Comprar').click()
+    cy.wait(2000)
+})
+cy.get('.swal-text').contains('Sua compra foi realizada com sucesso')
+cy.get('.swal-button').click()
+```
+        
 De forma análoga ao cálculo do frete, localizamos o botão `Comprar` na terceira coluna. Também utilizamos a função `wait()` para mais uma vez garantir que o modal carregue corretamente. Dentro do modal selecionamos o `swal-text` novamente e fazemos uma asserção com relação ao conteúdo, que dessa vez deve conter a mensagem de que a compra foi realizada com sucesso. Por fim, clicamos no botão dentro do modal para fechar o pop-up.
